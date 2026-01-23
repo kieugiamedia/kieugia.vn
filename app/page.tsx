@@ -1,170 +1,161 @@
 import { Cpu, LineChart, Megaphone, Plane } from "lucide-react";
 
+import Navbar from "../components/Navbar";
+
 const ecosystem = [
   {
     title: "Kiều Gia Media",
     description: "Digital Marketing & Production Agency.",
     icon: Megaphone,
+    accent: "border-gold/40 text-gold",
   },
   {
     title: "KIGI AI",
     description: "Artificial Intelligence Solutions & Mobile Apps.",
     icon: Cpu,
+    accent: "border-cyan-300/40 text-cyan-200",
   },
   {
     title: "BookingTravel.vn",
     description: "Travel & Hospitality Platform.",
     icon: Plane,
+    accent: "border-emerald-300/40 text-emerald-200",
   },
   {
     title: "Fintech",
     description: "Automated Trading Solutions.",
     icon: LineChart,
+    accent: "border-amber-300/40 text-amber-200",
   },
 ];
 
 export default function HomePage() {
   return (
-    <main className="bg-navy text-slate-100">
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.16),_transparent_55%)]" />
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-20 lg:flex-row lg:items-center lg:py-28">
-          <div className="flex-1">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-gold">
+    <main className="min-h-screen bg-[#0b1120] text-white">
+      <div className="mx-auto min-h-screen w-full max-w-md bg-[#0f172a] lg:my-10 lg:rounded-[32px] lg:border lg:border-white/10 lg:shadow-[0_40px_120px_-60px_rgba(15,23,42,0.9)]">
+        <section className="relative overflow-hidden bg-gradient-to-b from-[#0f172a] via-[#0b1120] to-[#0f172a]">
+          <div className="absolute inset-0">
+            <div className="absolute -top-24 -right-16 h-64 w-64 rounded-full bg-gradient-to-br from-gold/40 via-gold/5 to-transparent blur-3xl opacity-70 animate-float" />
+            <div className="absolute bottom-10 -left-12 h-48 w-48 rounded-full bg-gradient-to-br from-blue-500/30 via-indigo-500/10 to-transparent blur-3xl opacity-70 animate-float" />
+          </div>
+          <div className="relative flex h-screen flex-col justify-center px-6 pb-24 pt-10 text-center">
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-slate-200">
               Kiều Gia Group
             </div>
-            <h1 className="mt-6 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
+            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
               Kiều Gia Group - Vị Thế Tiên Phong, Nâng Tầm Giá Trị
             </h1>
-            <p className="mt-6 max-w-2xl text-base text-slate-200/90 sm:text-lg">
+            <p className="mt-5 text-sm leading-relaxed text-slate-300 sm:text-base">
               Hệ sinh thái Truyền thông - Công nghệ - Du lịch hàng đầu tại Nha
               Trang, kiến tạo chuẩn mực mới cho doanh nghiệp trong kỷ nguyên số.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4 text-sm text-slate-200/80">
-              <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2">
-                Trụ sở: 26 Nguyễn Đình Chiểu
-              </span>
-              <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2">
-                Nha Trang, Khánh Hòa
-              </span>
-              <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2">
-                Hotline 082.222.3112
-              </span>
-            </div>
-          </div>
-          <div className="flex-1">
-            <div className="rounded-3xl border border-gold/30 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 shadow-glow">
-              <p className="text-sm uppercase tracking-[0.2em] text-gold">
-                Ecosystem Highlights
-              </p>
-              <div className="mt-6 space-y-4">
-                <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
-                  <p className="text-base font-semibold text-white">
-                    Technology & Service Leadership
-                  </p>
-                  <p className="mt-2 text-sm text-slate-300/80">
-                    Dẫn dắt bởi CEO Kiều Thiên Bảo với chiến lược mở rộng bền vững.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
-                  <p className="text-base font-semibold text-white">
-                    Premium Corporate Identity
-                  </p>
-                  <p className="mt-2 text-sm text-slate-300/80">
-                    Khẳng định vị thế doanh nghiệp đa ngành tại miền Trung.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
-                  <p className="text-base font-semibold text-white">
-                    Digital Transformation Partner
-                  </p>
-                  <p className="mt-2 text-sm text-slate-300/80">
-                    Tối ưu trải nghiệm khách hàng bằng dữ liệu và tự động hóa.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex items-center justify-between gap-6">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-gold">
-              Hệ sinh thái
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold text-white">
-              4 trụ cột chiến lược của Kiều Gia Group
-            </h2>
-          </div>
-          <div className="hidden text-sm text-slate-300/80 md:block">
-            Đồng bộ công nghệ - dịch vụ - truyền thông
-          </div>
-        </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {ecosystem.map(({ title, description, icon: Icon }) => (
-            <div
-              key={title}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-gold/50 hover:bg-white/10"
+            <button
+              type="button"
+              className="mt-8 w-full min-h-[52px] rounded-full bg-gradient-to-r from-[#d4af37] via-[#e9cd75] to-[#c6971a] text-base font-semibold text-slate-900 shadow-[0_16px_40px_-24px_rgba(212,175,55,0.9)] transition active:scale-95"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gold/40 bg-gold/10 text-gold">
-                <Icon className="h-6 w-6" />
+              Khám phá hệ sinh thái
+            </button>
+            <div className="mt-8 grid grid-cols-2 gap-3 text-xs text-slate-300">
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left">
+                Trụ sở
+                <p className="mt-1 text-sm text-white">26 Nguyễn Đình Chiểu</p>
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-white">{title}</h3>
-              <p className="mt-2 text-sm text-slate-300/80">{description}</p>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left">
+                Thành phố
+                <p className="mt-1 text-sm text-white">Nha Trang</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left">
+                Hotline
+                <p className="mt-1 text-sm text-white">082.222.3112</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left">
+                CEO
+                <p className="mt-1 text-sm text-white">Kiều Thiên Bảo</p>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section className="border-t border-white/10 bg-slate-950/40">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-gold">
-              Tầm nhìn
-            </p>
-            <h3 className="mt-4 text-2xl font-semibold text-white">
-              Kiến tạo hệ sinh thái công nghệ & dịch vụ đẳng cấp quốc tế
-            </h3>
-            <p className="mt-4 text-sm text-slate-300/80">
-              CEO Kiều Thiên Bảo định hướng Kiều Gia Group trở thành biểu tượng
-              doanh nghiệp đa ngành tại Nha Trang, tiên phong ứng dụng công nghệ
-              để nâng tầm giá trị cho cộng đồng và đối tác.
-            </p>
+        <section className="px-6 pb-8 pt-10">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.35em] text-gold/90">
+                Hệ sinh thái
+              </p>
+              <h2 className="mt-3 text-xl font-semibold tracking-tight text-white">
+                4 trụ cột chiến lược
+              </h2>
+            </div>
+            <span className="text-xs text-slate-400">Swipe</span>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-gold">
-              Sứ mệnh
-            </p>
-            <h3 className="mt-4 text-2xl font-semibold text-white">
-              Kết nối truyền thông, AI, du lịch và tài chính
-            </h3>
-            <p className="mt-4 text-sm text-slate-300/80">
-              Từ trung tâm 26 Nguyễn Đình Chiểu, chúng tôi đồng hành cùng doanh
-              nghiệp trong chuyển đổi số, cung cấp giải pháp tối ưu hóa vận hành
-              và trải nghiệm khách hàng trên mọi điểm chạm.
-            </p>
+          <div className="scrollbar-hide mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
+            {ecosystem.map(({ title, description, icon: Icon, accent }) => (
+              <article
+                key={title}
+                className="relative min-h-[220px] w-[240px] flex-shrink-0 snap-center rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/80 via-slate-900/80 to-slate-950/90 p-5 shadow-[0_16px_40px_-30px_rgba(15,23,42,0.8)] transition active:scale-95"
+              >
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-60" />
+                <div className="relative flex h-full flex-col justify-between">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl border bg-white/5 ${accent}`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="text-left">
+                    <h3 className="text-lg font-semibold tracking-tight text-white">
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-xs text-slate-300/80">
+                      {description}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-300/80 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-base font-semibold text-white">
-              Kiều Gia Group
-            </p>
-            <p className="mt-2">26 Nguyễn Đình Chiểu, Nha Trang</p>
+        <section className="px-6 pb-24">
+          <div className="grid gap-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-gold/90">
+                Tầm nhìn
+              </p>
+              <h3 className="mt-3 text-lg font-semibold tracking-tight text-white">
+                Kiến tạo hệ sinh thái công nghệ & dịch vụ đẳng cấp quốc tế
+              </h3>
+              <p className="mt-3 text-sm text-slate-300">
+                CEO Kiều Thiên Bảo định hướng Kiều Gia Group trở thành biểu
+                tượng doanh nghiệp đa ngành tại Nha Trang, tiên phong ứng dụng
+                công nghệ để nâng tầm giá trị cho cộng đồng và đối tác.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-gold/90">
+                Sứ mệnh
+              </p>
+              <h3 className="mt-3 text-lg font-semibold tracking-tight text-white">
+                Kết nối truyền thông, AI, du lịch và tài chính
+              </h3>
+              <p className="mt-3 text-sm text-slate-300">
+                Từ trung tâm 26 Nguyễn Đình Chiểu, chúng tôi đồng hành cùng
+                doanh nghiệp trong chuyển đổi số, cung cấp giải pháp tối ưu hóa
+                vận hành và trải nghiệm khách hàng trên mọi điểm chạm.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-r from-white/5 via-white/10 to-white/5 p-6">
+              <p className="text-xs uppercase tracking-[0.35em] text-gold/90">
+                Liên hệ
+              </p>
+              <div className="mt-3 flex items-center justify-between text-sm text-slate-300">
+                <span>26 Nguyễn Đình Chiểu, Nha Trang</span>
+                <span className="font-semibold text-white">082.222.3112</span>
+              </div>
+            </div>
           </div>
-          <div className="text-right">
-            <p className="uppercase tracking-[0.2em] text-gold">Hotline</p>
-            <p className="mt-2 text-base font-semibold text-white">
-              082.222.3112
-            </p>
-          </div>
-        </div>
-      </footer>
+        </section>
+      </div>
+      <Navbar />
     </main>
   );
 }
