@@ -8,6 +8,17 @@
   --brand-surface: #f8fafc;
   --brand-surface-alt: #f1f5f9;
   --brand-text: #0f172a;
+  color-scheme: light;
+}
+
+.dark {
+  --brand-navy: #e2e8f0;
+  --brand-gold: #f0d073;
+  --brand-gold-soft: #f5e2a3;
+  --brand-surface: #0b1120;
+  --brand-surface-alt: #0f172a;
+  --brand-text: #e2e8f0;
+  color-scheme: dark;
 }
 
 *,
@@ -25,13 +36,17 @@ body {
   color: var(--brand-text);
   min-height: 100vh;
   font-family: "Inter", system-ui, sans-serif;
-  color-scheme: light;
   letter-spacing: -0.01em;
 }
 
 ::selection {
   background: rgba(15, 23, 42, 0.12);
   color: #0f172a;
+}
+
+.dark ::selection {
+  background: rgba(148, 163, 184, 0.35);
+  color: #f8fafc;
 }
 
 .scrollbar-hide {
