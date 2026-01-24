@@ -5,6 +5,9 @@
   --brand-navy: #0f172a;
   --brand-gold: #d4af37;
   --brand-gold-soft: #f2d27b;
+  --brand-surface: #f8fafc;
+  --brand-surface-alt: #f1f5f9;
+  --brand-text: #0f172a;
 }
 
 *,
@@ -18,17 +21,17 @@ html {
 }
 
 body {
-  background: var(--brand-navy);
-  color: #e2e8f0;
+  background: var(--brand-surface);
+  color: var(--brand-text);
   min-height: 100vh;
   font-family: "Inter", system-ui, sans-serif;
-  color-scheme: dark;
+  color-scheme: light;
   letter-spacing: -0.01em;
 }
 
 ::selection {
-  background: rgba(212, 175, 55, 0.3);
-  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.12);
+  color: #0f172a;
 }
 
 .scrollbar-hide {
