@@ -4,10 +4,12 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title:
-    "Kiều Gia - Cung cấp các giải pháp trí tuệ nhân tạo cho Marketing & Sales",
+  title: {
+    default: "KIỀU GIA GROUP | Hạ tầng số & AI cho doanh nghiệp thời đại mới",
+    template: "%s | KIỀU GIA GROUP",
+  },
   description:
-    "KIỀU GIA GROUP cung cấp giai phap cong nghe va ha tang so: Hosting, Domain, Cloud VPS, Server, Website, AI Automation va SEO System.",
+    "KIỀU GIA GROUP cung cấp giải pháp Hosting, Domain, VPS, Cloud, Website, AI Automation và SEO System cho doanh nghiệp.",
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png",
@@ -21,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" suppressHydrationWarning>
+    <html lang="vi" data-theme="dark" suppressHydrationWarning>
       <head>
         <Script id="theme-script" strategy="beforeInteractive">
           {`(() => {
@@ -29,12 +31,12 @@ export default function RootLayout({
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const theme = stored === "light" || stored === "dark" ? stored : prefersDark ? "dark" : "light";
   const root = document.documentElement;
-  root.classList.toggle("dark", theme === "dark");
+  root.setAttribute("data-theme", theme);
   root.style.colorScheme = theme;
 })();`}
         </Script>
       </head>
-      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+      <body className="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased transition-colors duration-300">
         {children}
       </body>
     </html>

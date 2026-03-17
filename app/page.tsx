@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Script from "next/script";
 
 import HomepageLanding from "../components/HomepageLanding";
+
+export const metadata: Metadata = {
+  title: "Hạ tầng số & AI cho doanh nghiệp thời đại mới",
+  description:
+    "KIỀU GIA GROUP cung cấp Hosting, Domain, VPS, Cloud, Website, AI Automation và SEO System cho doanh nghiệp tăng trưởng.",
+};
 
 const orgSchema = {
   "@context": "https://schema.org",

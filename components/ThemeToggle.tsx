@@ -14,7 +14,7 @@ const THEME_KEY = "theme";
 
 const getInitialTheme = (): Theme => {
   if (typeof window === "undefined") {
-    return "light";
+    return "dark";
   }
 
   const stored = window.localStorage.getItem(THEME_KEY);
@@ -29,16 +29,17 @@ const getInitialTheme = (): Theme => {
 
 const applyTheme = (theme: Theme) => {
   const root = document.documentElement;
-  root.classList.toggle("dark", theme === "dark");
+  root.setAttribute("data-theme", theme);
   root.style.colorScheme = theme;
   window.localStorage.setItem(THEME_KEY, theme);
+  window.dispatchEvent(new Event("themechange"));
 };
 
 export default function ThemeToggle({
   showLabel = true,
   className = "",
 }: ThemeToggleProps) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -66,7 +67,7 @@ export default function ThemeToggle({
       aria-label={nextLabel}
       aria-pressed={isDark}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`brand-panel group inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-medium text-[var(--text-secondary)] transition hover:bg-[var(--surface-3)] hover:text-[var(--brand-blue-deep)] dark:hover:bg-white/10 dark:hover:text-white ${className}`}
+      className={`brand-panel group inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-medium text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--primary)] ${className}`}
     >
       <span className="brand-icon flex h-7 w-7 items-center justify-center rounded-full transition group-hover:scale-105">
         {isDark ? (
@@ -77,7 +78,7 @@ export default function ThemeToggle({
       </span>
       {showLabel && (
         <span className="text-[11px] uppercase tracking-[0.3em]">
-          {mounted ? label : "Sáng"}
+          {mounted ? label : "Tối"}
         </span>
       )}
     </button>
