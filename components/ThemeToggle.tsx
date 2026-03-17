@@ -66,9 +66,9 @@ export default function ThemeToggle({
       aria-label={nextLabel}
       aria-pressed={isDark}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-2 text-xs font-medium text-slate-700 shadow-sm transition hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-white ${className}`}
+      className={`brand-panel group inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-medium text-[var(--text-secondary)] transition hover:bg-[var(--surface-3)] hover:text-[var(--brand-blue-deep)] dark:hover:bg-white/10 dark:hover:text-white ${className}`}
     >
-      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 text-white transition group-hover:scale-105 dark:bg-amber-200 dark:text-slate-950">
+      <span className="brand-icon flex h-7 w-7 items-center justify-center rounded-full transition group-hover:scale-105">
         {isDark ? (
           <Moon className="h-4 w-4" />
         ) : (

@@ -4,9 +4,15 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kiều Gia Group - Tiên Phong Công Nghệ & Truyền Thông",
+  title:
+    "Kiều Gia - Cung cấp các giải pháp trí tuệ nhân tạo cho Marketing & Sales",
   description:
-    "Kiều Gia Group kiến tạo hệ sinh thái truyền thông, công nghệ, du lịch và tài chính tại Nha Trang.",
+    "KIỀU GIA GROUP cung cấp giai phap cong nghe va ha tang so: Hosting, Domain, Cloud VPS, Server, Website, AI Automation va SEO System.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+    shortcut: "/icon.png",
+  },
 };
 
 export default function RootLayout({
