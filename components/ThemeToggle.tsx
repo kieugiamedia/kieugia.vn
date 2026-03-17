@@ -60,6 +60,11 @@ export default function ThemeToggle({
   const isDark = theme === "dark";
   const label = isDark ? "Tối" : "Sáng";
   const nextLabel = isDark ? "Chuyển sang sáng" : "Chuyển sang tối";
+  const iconOnly = !showLabel;
+
+  const rootClassName = iconOnly
+    ? "brand-panel group inline-flex h-10 w-10 items-center justify-center rounded-2xl p-0 text-xs font-medium text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--primary)]"
+    : "brand-panel group inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-medium text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--primary)]";
 
   return (
     <button
@@ -67,9 +72,13 @@ export default function ThemeToggle({
       aria-label={nextLabel}
       aria-pressed={isDark}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`brand-panel group inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-medium text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--primary)] ${className}`}
+      className={`${rootClassName} ${className}`}
     >
-      <span className="brand-icon flex h-7 w-7 items-center justify-center rounded-full transition group-hover:scale-105">
+      <span
+        className={`brand-icon flex items-center justify-center transition group-hover:scale-105 ${
+          iconOnly ? "h-6 w-6 rounded-xl" : "h-7 w-7 rounded-full"
+        }`}
+      >
         {isDark ? (
           <Moon className="h-4 w-4" />
         ) : (

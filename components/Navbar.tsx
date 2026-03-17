@@ -7,21 +7,23 @@ import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 import BrandLogo from "./BrandLogo";
-import LeadModal from "./LeadModal";
 import ThemeToggle from "./ThemeToggle";
 
-const mainLinks = [
+type NavLink = {
+  label: string;
+  href: string;
+  match?: string[];
+};
+
+const mainLinks: NavLink[] = [
   { label: "Trang chủ", href: "/" },
-  { label: "Domain", href: "/domain" },
+  { label: "Giới thiệu", href: "/about" },
+  { label: "Tên miền", href: "/domain" },
   { label: "Hosting", href: "/hosting" },
-  { label: "VPS / Cloud", href: "/vps-cloud" },
+  { label: "Máy chủ", href: "/vps-cloud" },
   { label: "Website", href: "/thiet-ke-website" },
   { label: "AI", href: "/ai-automation" },
   { label: "SEO", href: "/seo-system" },
-];
-
-const extraLinks = [
-  { label: "Giới thiệu", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Liên hệ", href: "/contact" },
 ];
@@ -36,7 +38,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 12);
@@ -83,7 +84,11 @@ export default function Navbar() {
     [scrolled, theme],
   );
 
-  const isActive = (href: string) => {
+  const isActive = (href: string, match?: string[]) => {
+    if (match?.some((path) => pathname.startsWith(path))) {
+      return true;
+    }
+
     if (href === "/") {
       return pathname === "/";
     }
@@ -96,24 +101,21 @@ export default function Navbar() {
         <div className="layout-shell">
           <div data-scrolled={scrolled} className={desktopShellClass}>
             <div className="flex items-center gap-3">
-              <BrandLogo className="h-12 w-12" />
+              <BrandLogo className="h-10 w-10" />
               <div>
                 <p className="text-sm font-semibold tracking-[0.1em] text-[var(--text)]">
                   KIỀU GIA GROUP
                 </p>
-                <p className="text-muted text-[10px] uppercase tracking-[0.24em]">
-                  Tech Infrastructure
-                </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               {mainLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] transition ${
-                    isActive(item.href)
+                  className={`whitespace-nowrap rounded-full px-3 py-2 text-xs font-semibold transition ${
+                    isActive(item.href, item.match)
                       ? "bg-[var(--button-secondary-hover)] text-[var(--primary)]"
                       : "text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--primary)]"
                   }`}
@@ -124,23 +126,10 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <Link
-                href="/blog"
-                className="inline-flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--primary)]"
-              >
-                Blog
-              </Link>
-              <button
-                type="button"
-                onClick={() => setModalOpen(true)}
-                className="secondary-button inline-flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold transition"
-              >
-                Tư vấn
-              </button>
+              <ThemeToggle showLabel={false} />
               <Link
                 href="/contact"
-                className="primary-button inline-flex min-h-11 items-center justify-center rounded-full px-5 text-sm font-semibold transition"
+                className="primary-button inline-flex min-h-10 items-center justify-center rounded-full px-5 text-sm font-semibold transition"
               >
                 Bắt đầu ngay
               </Link>
@@ -153,17 +142,14 @@ export default function Navbar() {
         <div className="layout-shell pt-4">
           <div data-scrolled={scrolled} className={mobileShellClass}>
             <Link href="/" className="flex items-center gap-3">
-              <BrandLogo className="h-10 w-10" />
+              <BrandLogo className="h-9 w-9" />
               <p className="text-sm font-semibold tracking-[0.08em] text-[var(--text)]">
                 KIỀU GIA GROUP
               </p>
             </Link>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle
-                showLabel={false}
-                className="h-10 w-10 justify-center rounded-2xl px-0"
-              />
+              <ThemeToggle showLabel={false} />
               <button
                 type="button"
                 aria-label={mobileOpen ? "Đóng menu" : "Mở menu"}
@@ -191,8 +177,8 @@ export default function Navbar() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`rounded-xl px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] transition ${
-                        isActive(item.href)
+                      className={`rounded-xl px-3 py-2 text-center text-xs font-semibold transition ${
+                        isActive(item.href, item.match)
                           ? "bg-[var(--button-secondary-hover)] text-[var(--primary)]"
                           : "text-[var(--text-secondary)] hover:bg-[var(--button-secondary-hover)]"
                       }`}
@@ -202,29 +188,10 @@ export default function Navbar() {
                   ))}
                 </div>
 
-                <div className="mt-3 grid grid-cols-3 gap-2 border-t border-[var(--border)] pt-3">
-                  {extraLinks.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="text-muted rounded-xl px-3 py-2 text-center text-xs font-semibold uppercase tracking-[0.08em] transition hover:bg-[var(--button-secondary-hover)] hover:text-[var(--primary)]"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-
-                <div className="mt-4 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setModalOpen(true)}
-                    className="secondary-button inline-flex min-h-11 items-center justify-center rounded-full px-4 text-xs font-semibold uppercase tracking-[0.08em]"
-                  >
-                    Tư vấn
-                  </button>
+                <div className="mt-4">
                   <Link
                     href="/contact"
-                    className="primary-button inline-flex min-h-11 items-center justify-center rounded-full px-4 text-xs font-semibold uppercase tracking-[0.08em]"
+                    className="primary-button inline-flex min-h-11 w-full items-center justify-center rounded-full px-4 text-xs font-semibold"
                   >
                     Bắt đầu
                   </Link>
@@ -235,8 +202,6 @@ export default function Navbar() {
         </AnimatePresence>
       </nav>
 
-      <LeadModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
-
